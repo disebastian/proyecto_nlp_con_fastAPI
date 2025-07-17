@@ -3,6 +3,7 @@
 Este repositorio contiene un servicio web básico desarrollado con **FastAPI**, diseñado para gestionar funcionalidades de **procesamiento de lenguaje natural (NLP)**. El sistema permite:
 
 - Identificar adverbios
+- Identificar voz pasiva
 - Identificar oraciones largas
 
 El objetivo es ofrecer una base funcional para experimentar con técnicas de NLP aplicadas a problemas prácticos de análisis de texto.
@@ -12,6 +13,7 @@ El objetivo es ofrecer una base funcional para experimentar con técnicas de NLP
 ## Requisitos
 
 - Python 3.8 o superior
+- [Spacy](https://spacy.io/)
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [uvicorn](https://www.uvicorn.org/)
 - (Opcional) Entorno virtual con `venv`
@@ -23,7 +25,7 @@ El objetivo es ofrecer una base funcional para experimentar con técnicas de NLP
 1. Cloná este repositorio:
 
    ```bash
-   git clone https://github.com/disebastian/proyecto_nlp_con_fastAPI.git
+   git clone git@github.com:disebastian/proyecto_nlp_con_fastAPI.git
    cd proyecto_nlp_con_fastAPI
    ```
 
