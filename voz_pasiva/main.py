@@ -12,21 +12,8 @@ def identificar_voz_pasiva(texto:str):
         return "No se utiliza voz pasiva"
 
 def utiliza_voz_pasiva(texto: str):
-    nlp = spacy.load("es_dep_news_trf")
-    matcher = DependencyMatcher(nlp.vocab)
-
-    patron = obtener_patron_voz_pasiva_canonica()
-    matcher.add("VOZ_PASIVA_CANONICA", [patron])
-
-    patron = obtener_patron_voz_pasiva_refleja()
-    matcher.add("VOZ_PASIVA_REFLEJA", [patron])
-
-    patron = obtener_patron_voz_pasiva_con_dativo()
-    matcher.add("VOZ_PASIVA_CON_DATIVO", [patron])
-
     doc = nlp(texto)
     coincidencias = matcher(doc)
-
     if coincidencias:
         return True
     else:
@@ -97,3 +84,15 @@ def obtener_patron_voz_pasiva_con_dativo():
             "RIGHT_ATTRS": {"POS": "NOUN", "DEP": {"IN": ["nsubj", "obj"]}}
         }
     ]
+
+nlp = spacy.load("es_dep_news_trf")
+matcher = DependencyMatcher(nlp.vocab)
+
+patron = obtener_patron_voz_pasiva_canonica()
+matcher.add("VOZ_PASIVA_CANONICA", [patron])
+
+patron = obtener_patron_voz_pasiva_refleja()
+matcher.add("VOZ_PASIVA_REFLEJA", [patron])
+
+patron = obtener_patron_voz_pasiva_con_dativo()
+matcher.add("VOZ_PASIVA_CON_DATIVO", [patron])
